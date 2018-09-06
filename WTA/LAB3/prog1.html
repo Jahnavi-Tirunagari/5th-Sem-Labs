@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FEEDBACK</title>
+</head>
+<body>
+	<form id="form1">
+		<fieldset>
+		<div>
+			<label>Name</label>
+			<input type="text" name="Name">
+		</div>
+		<div>
+			<label>City</label>
+			<input type="text" name="City">
+		</div>
+		<div>
+			<label>Gender</label>
+			<select name="Gender">Gender
+			<option value="male">Male</option>
+			<option vlaue="female">Female</option>	
+			</select>
+		</div>
+		<div>
+			Notes:
+			<br>
+			<textarea rows="6" cols="50" name="text_block">
+			</textarea>
+		</div>
+		</fieldset>
+	</form>
+	<button onclick="myFunction()">Submit By Id</button>
+
+	<p id="demo"></p>
+
+	<script>
+	function myFunction() {
+	    var x = document.forms["form1"];
+	    var text = "";
+	    var i;
+	    for (i = 1; i < x.length ;i++) 
+	    {
+	        text += x.elements[i].value + "<br>";
+	    }
+	    document.getElementById("demo").innerHTML = text;
+	}
+	</script>
+
+	<button onclick="myFunction1()">Submit By Name</button>
+	<p id="demo1"></p>
+
+	<script>
+	function myFunction1() 
+	{
+	    var x = document.forms["form1"];
+	    var text = "";
+	    var i;
+	    text += x.elements.namedItem("Name").value + "<br>"; 
+	    text += x.elements.namedItem("City").value + "<br>";
+	   	text += x.elements.namedItem("Gender").value + "<br>";
+	   	text += x.elements.namedItem("text_block").value + "<br>";
+	    document.getElementById("demo1").innerHTML = text;
+	}
+	</script>
+</body>
+</html>
